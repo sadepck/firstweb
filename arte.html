@@ -51,32 +51,37 @@
             </div>
         </section>
 
-        <section id="galeria" class="gallery">
-            <h2>Obras Destacadas</h2>
-            <div class="gallery-container" id="gallery-container">
-                <!-- Las imágenes se cargarán con JavaScript -->
-            </div>
-        </section>
-
-        <section id="artistas" class="artists">
+        <section id="artistas" class="nuestros-artistas">
+          <div id="app">
             <h2>Nuestros Artistas</h2>
-            <div class="artists-grid">
-                <div class="artist-card">
-                    <div class="artist-img" style="background-image: url('imagenes/descarga (1).jpeg')"></div>
-                    <h3>María González</h3>
-                    <p>Pintura al óleo</p>
+            
+            <div class="gallery">
+              <!-- Artista destacado -->
+              <div 
+                class="gallery-hero" 
+                :style="{ backgroundImage: `url(${artistas[index].url})`  }"
+              >
+                <div class="overlay">
+                  <h3>{{ artistas[index].nombre }}</h3>
+                  <p>{{ artistas[index].especialidad }}</p>
+                  <small>{{ artistas[index].bio }}</small>
                 </div>
-                <div class="artist-card">
-                    <div class="artist-img" style="background-image: url('imagenes/c0ded90793b6dd263a4bb3e3450d377a.jpg')"></div>
-                    <h3>Carlos Méndez</h3>
-                    <p>Escultura</p>
-                </div>
-                <div class="artist-card">
-                    <div class="artist-img" style="background-image: url('imagenes/descarga.jpeg')"></div>
-                    <h3>Ana Vargas</h3>
-                    <p>Fotografía</p>
-                </div>
+              </div>
+
+              <!-- Miniaturas -->
+              <ul class="gallery-thumbnails">
+                <li 
+                  v-for="artista in artistas" 
+                  :key="artista.id"
+                  :style="{ backgroundImage: `url(${artista.url})`  }"
+                  :class="{ active: index === artista.id }"
+                  @click="updateHero(artista.id)"
+                >
+                  <span>{{ artista.nombre }}</span>
+                </li>
+              </ul>
             </div>
+          </div>
         </section>
 
         <section id="sobre-nosotros" class="sobre-nosotros">
@@ -174,5 +179,78 @@
     </button>
     
     <script src="script.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script>
+    const { createApp, ref, onMounted, onUnmounted } = Vue;
+
+    createApp({
+      setup() {
+        const index = ref(0);
+
+        const artistas = [
+          {
+            id: 0,
+            nombre: "María López",
+            especialidad: "Pintura contemporánea",
+            bio: "Explora la abstracción con colores vibrantes.",
+            url: "https://tinyurl.com/56dsdtt5"
+          },
+          {
+            id: 1,
+            nombre: "Carlos Pérez",
+            especialidad: "Fotografía urbana",
+            bio: "Captura la esencia de la vida en la ciudad.",
+            url: "https://tinyurl.com/7242mk96"
+          },
+          {
+            id: 2,
+            nombre: "Ana Torres",
+            especialidad: "Escultura en madera",
+            bio: "Obras que fusionan naturaleza y forma humana.",
+            url: "https://tinyurl.com/bd4apd4c"
+          },
+          {
+            id: 3,
+            nombre: "Luis Fernández",
+            especialidad: "Arte digital",
+            bio: "Experimenta con nuevas formas visuales y tecnología.",
+            url: "https://tinyurl.com/56a835f4"
+          },
+          {
+            id: 4,
+            nombre: "Sofía Ramírez",
+            especialidad: "Ilustración botánica",
+            bio: "Ilustra la belleza de la flora con gran detalle.",
+            url: "https://tinyurl.com/ksjnajrf"
+          }
+        ];
+
+        const updateHero = (id) => {
+          index.value = id;
+        };
+
+        const updateIndex = (e) => {
+          if (e.key === "ArrowRight") index.value++;
+          if (e.key === "ArrowLeft") index.value--;
+          if (index.value > artistas.length - 1) index.value = 0;
+          if (index.value < 0) index.value = artistas.length - 1;
+        };
+
+        onMounted(() => {
+          document.addEventListener("keydown", updateIndex, false);
+        });
+
+        onUnmounted(() => {
+          document.removeEventListener("keydown", updateIndex, false);
+        });
+
+        return {
+          index,
+          artistas,
+          updateHero
+        };
+      }
+    }).mount("#app");
+    </script>
 </body>
 </html>

@@ -39,21 +39,44 @@
 
     <main class="pagina-galeria">
         <div class="container">
-            <h1>Nuestra Colección de Arte</h1>
-            <p class="descripcion-galeria">Explora nuestra exclusiva colección de obras maestras de artistas contemporáneos de todo el mundo. Cada pieza cuenta una historia única y refleja la creatividad y pasión de nuestros talentosos artistas.</p>
-            
-            <div class="filtros">
-                <button class="filtro-btn activo" data-categoria="todos">Todos</button>
-                <button class="filtro-btn" data-categoria="pintura">Pinturas</button>
-                <button class="filtro-btn" data-categoria="escultura">Esculturas</button>
-                <button class="filtro-btn" data-categoria="fotografia">Fotografía</button>
-            </div>
+            <section id="galeria" class="galeria">
+                <h1>Galería de Arte</h1>
+                <p class="intro-text">Explora una colección de obras seleccionadas de diferentes artistas contemporáneos.</p>
+                
+                <div class="galeria-grid">
+                    
+                    <article class="obra">
+                        <img src="https://assets.codepen.io/2585/Roboto.svg" alt="Obra abstracta Roboto" loading="lazy">
+                        <h3>Obra Abstracta</h3>
+                        <p>Composición geométrica con trazos digitales modernos.</p>
+                        <a href="arte.html#artistas">Ver más</a>
+                    </article>
 
-            <div class="grid-galeria" id="grid-galeria">
-                <!-- Las obras de arte se cargarán con JavaScript -->
-            </div>
+                    <article class="obra">
+                        <img src="https://assets.codepen.io/2585/Entertainment.svg" alt="Arte digital Entertainment" loading="lazy">
+                        <h3>Arte Digital</h3>
+                        <p>Una visión vibrante de formas y colores dinámicos.</p>
+                        <a href="arte.html#artistas">Conocer artista</a>
+                    </article>
 
-            <a href="arte.html" class="volver-inicio">← Volver a la página principal</a>
+                    <article class="obra">
+                        <img src="https://assets.codepen.io/2585/Mechanical+Love.svg" alt="Obra Mechanical Love" loading="lazy">
+                        <h3>Mechanical Love</h3>
+                        <p>Exploración artística entre lo humano y lo mecánico.</p>
+                        <a href="arte.html#artistas">Detalles</a>
+                    </article>
+
+                    <article class="obra">
+                        <img src="https://assets.codepen.io/2585/Waiting.svg" alt="Obra Waiting" loading="lazy">
+                        <h3>Waiting</h3>
+                        <p>Una pieza que refleja calma y contemplación.</p>
+                        <a href="arte.html#artistas">Descubrir más</a>
+                    </article>
+
+                </div>
+                
+                <a href="arte.html" class="volver-inicio" style="display: block; margin-top: 2rem; text-align: center;">← Volver a la página principal</a>
+            </section>
         </div>
     </main>
 
