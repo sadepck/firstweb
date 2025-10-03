@@ -1,0 +1,99 @@
+/* Estilos del botón de modo oscuro */
+.dark-mode-toggle {
+    background: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+    background-color: var(--light-color);
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+    --primary-color: #3498db;
+    --secondary-color: #e74c3c;
+    --light-color: #2c3e50;
+    --dark-color: #ecf0f1;
+    --text-color: #ecf0f1;
+    background-color: #1a1a2e;
+    color: var(--text-color);
+}
+
+body.dark-mode header {
+    background-color: #16213e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .gallery,
+body.dark-mode .contact {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode .artists {
+    background-color: #16213e;
+}
+
+body.dark-mode .artist-card,
+body.dark-mode .artwork {
+    background-color: #0f3460;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .artist-card h3,
+body.dark-mode .artist-card p {
+    color: #ecf0f1;
+}
+
+body.dark-mode .dark-mode-toggle {
+    border-color: var(--dark-color);
+    color: var(--dark-color);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+/* Ajustes adicionales para el modo oscuro */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(--dark-color);
+}
+
+body.dark-mode .hero-text h1,
+body.dark-mode .hero-text p {
+    color: var(--dark-color);
+}
+
+body.dark-mode .hero-content {
+    color: var(--dark-color);
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #0f3460;
+    color: var(--dark-color);
+    border-color: #2c3e50;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}

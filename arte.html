@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Arte Moderno</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="eventos-banner">
+        <div class="eventos-contenedor">
+            <span class="evento-titulo">📅 Próximos Eventos de Arte:</span>
+            <div class="eventos-lista">
+                <span class="evento-item">• Exposición de Arte Moderno - 15 Oct (10:00 - 20:00) •</span>
+                <span class="evento-item">• Taller de Pintura al Óleo - 20 Oct (16:00 - 19:00) •</span>
+                <span class="evento-item">• Noche de Galerías - 25 Oct (19:00 - 23:00) •</span>
+                <span class="evento-item">• Charla con Artistas - 28 Oct (18:00 - 20:30) •</span>
+                <span class="evento-item">• Taller de Escultura - 2 Nov (15:00 - 18:00) •</span>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="logo">Galería de Arte</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="#artistas">Artistas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="cambiar modo oscuro/claro">
+            <span class="dark-mode-icon">🌙</span>
+            <span class="light-mode-icon" style="display: none;">☀️</span>
+        </button>
+        <div id="reloj" class="tiempo-contador">Hora actual: <span id="hora-actual">00:00:00</span></div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Explora el Mundo del Arte</h1>
+                    <p>Descubre obras maestras de artistas talentosos de todo el mundo</p>
+                    <a href="#galeria" class="btn">Ver Galería</a>
+                </div>
+                <div class="hero-image">
+                    <img src="imagenes/que-es-el-arte-og.webp" alt="¿Qué es el arte?" class="hero-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="gallery">
+            <h2>Obras Destacadas</h2>
+            <div class="gallery-container" id="gallery-container">
+                <!-- Las imágenes se cargarán con JavaScript -->
+            </div>
+        </section>
+
+        <section id="artistas" class="artists">
+            <h2>Nuestros Artistas</h2>
+            <div class="artists-grid">
+                <div class="artist-card">
+                    <div class="artist-img" style="background-image: url('imagenes/descarga (1).jpeg')"></div>
+                    <h3>María González</h3>
+                    <p>Pintura al óleo</p>
+                </div>
+                <div class="artist-card">
+                    <div class="artist-img" style="background-image: url('imagenes/c0ded90793b6dd263a4bb3e3450d377a.jpg')"></div>
+                    <h3>Carlos Méndez</h3>
+                    <p>Escultura</p>
+                </div>
+                <div class="artist-card">
+                    <div class="artist-img" style="background-image: url('imagenes/descarga.jpeg')"></div>
+                    <h3>Ana Vargas</h3>
+                    <p>Fotografía</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre-nosotros" class="sobre-nosotros">
+            <div class="container">
+                <h2>Sobre Nuestra Galería</h2>
+                <div class="contenido-sobre-nosotros">
+                    <div class="texto-sobre-nosotros">
+                        <p>Bienvenido a <strong>Galería de Arte Moderno</strong>, un espacio dedicado a la exhibición y promoción del arte contemporáneo. Fundada en 2010, nuestra galería se ha convertido en un referente cultural en la escena artística local e internacional.</p>
+                        
+                        <div class="mision-vision">
+                            <article class="card">
+                                <h3>Nuestra Misión</h3>
+                                <p>Promover y difundir el trabajo de artistas emergentes y consolidados, fomentando el diálogo entre el arte y la comunidad a través de exposiciones, talleres y eventos culturales que inspiren y enriquezcan la experiencia artística de nuestros visitantes.</p>
+                            </article>
+                            
+                            <article class="card">
+                                <h3>Nuestra Visión</h3>
+                                <p>Ser reconocidos como un espacio cultural de excelencia, comprometido con la innovación artística y la accesibilidad al arte, siendo un puente entre los creadores y el público en general.</p>
+                            </article>
+                        </div>
+                        
+                        <div class="valores">
+                            <h3>Nuestros Valores</h3>
+                            <ul>
+                                <li><strong>Pasión por el arte</strong> en todas sus expresiones.</li>
+                                <li><strong>Compromiso</strong> con la calidad y la excelencia artística.</li>
+                                <li><strong>Innovación</strong> en la presentación y promoción del arte.</li>
+                                <li><strong>Accesibilidad</strong> para todos los públicos.</li>
+                                <li><strong>Respeto</strong> por la diversidad cultural y artística.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <h2>Contacto</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-seccion redes-sociales">
+                <h3>Contáctanos</h3>
+                <div class="contenedor-botones">
+                    <a href="https://wa.me/34123456789" class="boton-red-social whatsapp" target="_blank" rel="noopener noreferrer">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="icono-red-social">
+                        <span>WhatsApp</span>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/galeriadeartemoderno" class="boton-red-social instagram" target="_blank" rel="noopener noreferrer">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="icono-red-social">
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-seccion contacto-rapido">
+                <h3>Contacto Rápido</h3>
+                <div class="contenedor-contacto">
+                    <a href="tel:+34912345678" class="boton-contacto telefono">
+                        <i class="icono-contacto">📞</i>
+                        <span>+34 912 345 678</span>
+                    </a>
+                    
+                    <a href="mailto:info@galeriadearte.com" class="boton-contacto correo">
+                        <i class="icono-contacto">✉️</i>
+                        <span>info@galeriadearte.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-inferior">
+            <p>&copy; 2025 Galería de Arte Moderno. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="caption"></div>
+    </div>
+
+    <!-- Botón Volver Arriba -->
+    <button id="btnVolverArriba" title="Volver arriba">
+        <span>↑</span>
+    </button>
+    
+    <script src="script.js"></script>
+</body>
+</html>

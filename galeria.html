@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Arte - Obras Maestras</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="eventos-banner">
+        <div class="eventos-contenedor">
+            <span class="evento-titulo">📅 Próximos Eventos de Arte:</span>
+            <div class="eventos-lista">
+                <span class="evento-item">• Exposición de Arte Moderno - 15 Oct (10:00 - 20:00) •</span>
+                <span class="evento-item">• Taller de Pintura al Óleo - 20 Oct (16:00 - 19:00) •</span>
+                <span class="evento-item">• Noche de Galerías - 25 Oct (19:00 - 23:00) •</span>
+                <span class="evento-item">• Charla con Artistas - 28 Oct (18:00 - 20:30) •</span>
+                <span class="evento-item">• Taller de Escultura - 2 Nov (15:00 - 18:00) •</span>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="logo">Galería de Arte</div>
+        <nav>
+            <ul>
+                <li><a href="arte.html">Inicio</a></li>
+                <li><a href="galeria.html" class="activo">Galería</a></li>
+                <li><a href="arte.html#artistas">Artistas</a></li>
+                <li><a href="arte.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="cambiar modo oscuro/claro">
+            <span class="dark-mode-icon">🌙</span>
+            <span class="light-mode-icon" style="display: none;">☀️</span>
+        </button>
+        <div id="reloj" class="tiempo-contador">Hora actual: <span id="hora-actual">00:00:00</span></div>
+    </header>
+
+    <main class="pagina-galeria">
+        <div class="container">
+            <h1>Nuestra Colección de Arte</h1>
+            <p class="descripcion-galeria">Explora nuestra exclusiva colección de obras maestras de artistas contemporáneos de todo el mundo. Cada pieza cuenta una historia única y refleja la creatividad y pasión de nuestros talentosos artistas.</p>
+            
+            <div class="filtros">
+                <button class="filtro-btn activo" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" data-categoria="pintura">Pinturas</button>
+                <button class="filtro-btn" data-categoria="escultura">Esculturas</button>
+                <button class="filtro-btn" data-categoria="fotografia">Fotografía</button>
+            </div>
+
+            <div class="grid-galeria" id="grid-galeria">
+                <!-- Las obras de arte se cargarán con JavaScript -->
+            </div>
+
+            <a href="arte.html" class="volver-inicio">← Volver a la página principal</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-seccion redes-sociales">
+                <h3>Contáctanos</h3>
+                <div class="contenedor-botones">
+                    <a href="https://wa.me/34123456789" class="boton-red-social whatsapp" target="_blank" rel="noopener noreferrer">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="icono-red-social">
+                        <span>WhatsApp</span>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/galeriadeartemoderno" class="boton-red-social instagram" target="_blank" rel="noopener noreferrer">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="icono-red-social">
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-seccion contacto-rapido">
+                <h3>Contacto Rápido</h3>
+                <div class="contenedor-contacto">
+                    <a href="tel:+34912345678" class="boton-contacto telefono">
+                        <i class="icono-contacto">📞</i>
+                        <span>+34 912 345 678</span>
+                    </a>
+                    
+                    <a href="mailto:info@galeriadearte.com" class="boton-contacto correo">
+                        <i class="icono-contacto">✉️</i>
+                        <span>info@galeriadearte.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-inferior">
+            <p>&copy; 2025 Galería de Arte Moderno. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Volver Arriba -->
+    <button id="btnVolverArriba" title="Volver arriba">
+        <span>↑</span>
+    </button>
+
+    <script>
+        // Datos de ejemplo para la galería
+        const obrasDeArte = [
+            {
+                id: 1,
+                titulo: "Atardecer en la Montaña",
+                artista: "María González",
+                tecnica: "Óleo sobre lienzo",
+                año: 2023,
+                categoria: "pintura",
+                imagen: "imagenes/descarga (1).jpeg"
+            },
+            {
+                id: 2,
+                titulo: "La Danza de las Formas",
+                artista: "Carlos Ruiz",
+                tecnica: "Escultura en bronce",
+                año: 2022,
+                categoria: "escultura",
+                imagen: "imagenes/c0ded90793b6dd263a4bb3e3450d377a.jpg"
+            },
+            {
+                id: 3,
+                titulo: "Retrato Urbano",
+                artista: "Ana Vargas",
+                tecnica: "Fotografía digital",
+                año: 2023,
+                categoria: "fotografia",
+                imagen: "imagenes/descarga.jpeg"
+            },
+            {
+                id: 4,
+                titulo: "Abstracción en Azul",
+                artista: "Miguel Ángel",
+                tecnica: "Óleo sobre lienzo",
+                año: 2022,
+                categoria: "pintura",
+                imagen: "imagenes/descarga (2).jpeg"
+            },
+            {
+                id: 5,
+                titulo: "Equilibrio Natural",
+                artista: "Sofía López",
+                tecnica: "Escultura en madera",
+                año: 2023,
+                categoria: "escultura",
+                imagen: "imagenes/descarga (6).jpeg"
+            },
+            {
+                id: 6,
+                titulo: "Siluetas Nocturnas",
+                artista: "Diego Martín",
+                tecnica: "Fotografía en blanco y negro",
+                año: 2023,
+                categoria: "fotografia",
+                imagen: "imagenes/descarga (3).jpeg"
+            },
+            {
+                id: 7,
+                titulo: "Paisaje Onírico",
+                artista: "Elena Ramírez",
+                tecnica: "Acuarela sobre papel",
+                año: 2023,
+                categoria: "pintura",
+                imagen: "imagenes/descarga (7).jpeg"
+            },
+            {
+                id: 8,
+                titulo: "Reflejos del Alma",
+                artista: "Javier Morales",
+                tecnica: "Escultura en vidrio",
+                año: 2022,
+                categoria: "escultura",
+                imagen: "imagenes/descarga (5).jpeg"
+            }
+        ];
+
+        // Función para cargar las obras en la galería
+        function cargarGaleria(categoria = 'todos') {
+            const gridGaleria = document.getElementById('grid-galeria');
+            gridGaleria.innerHTML = '';
+
+            const obrasFiltradas = categoria === 'todos' 
+                ? obrasDeArte 
+                : obrasDeArte.filter(obra => obra.categoria === categoria);
+
+            if (obrasFiltradas.length === 0) {
+                gridGaleria.innerHTML = '<p class="sin-obras">No hay obras en esta categoría.</p>';
+                return;
+            }
+
+            obrasFiltradas.forEach(obra => {
+                const obraElement = document.createElement('div');
+                obraElement.className = 'obra-arte';
+                obraElement.dataset.categoria = obra.categoria;
+                
+                obraElement.innerHTML = `
+                    <img src="${obra.imagen}" alt="${obra.titulo}" class="imagen-obra" loading="lazy">
+                    <div class="info-obra">
+                        <h3>${obra.titulo}</h3>
+                        <p><strong>Artista:</strong> ${obra.artista}</p>
+                        <p><strong>Técnica:</strong> ${obra.tecnica}</p>
+                        <p><strong>Año:</strong> ${obra.año}</p>
+                    </div>
+                `;
+                
+                gridGaleria.appendChild(obraElement);
+            });
+        }
+
+        // Filtrar obras por categoría
+        document.querySelectorAll('.filtro-btn').forEach(boton => {
+            boton.addEventListener('click', () => {
+                // Remover clase activa de todos los botones
+                document.querySelectorAll('.filtro-btn').forEach(btn => btn.classList.remove('activo'));
+                // Agregar clase activa al botón clickeado
+                boton.classList.add('activo');
+                // Filtrar obras
+                const categoria = boton.dataset.categoria;
+                cargarGaleria(categoria);
+                
+                // Desplazarse suavemente al principio de la galería
+                document.querySelector('.grid-galeria').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+
+        // Cargar la galería al iniciar
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarGaleria();
+            
+            // Inicializar el reloj
+            function actualizarReloj() {
+                const ahora = new Date();
+                const opciones = { 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    second: '2-digit',
+                    hour12: false
+                };
+                const horaFormateada = ahora.toLocaleTimeString('es-ES', opciones);
+                document.getElementById('hora-actual').textContent = horaFormateada;
+            }
+            setInterval(actualizarReloj, 1000);
+            actualizarReloj();
+            
+            // Botón de modo oscuro
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.querySelector('.dark-mode-icon').style.display = 'none';
+                darkModeToggle.querySelector('.light-mode-icon').style.display = 'inline';
+            }
+            
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                localStorage.setItem('darkMode', isDarkMode);
+                
+                const darkIcon = darkModeToggle.querySelector('.dark-mode-icon');
+                const lightIcon = darkModeToggle.querySelector('.light-mode-icon');
+                
+                if (isDarkMode) {
+                    darkIcon.style.display = 'none';
+                    lightIcon.style.display = 'inline';
+                } else {
+                    darkIcon.style.display = 'inline';
+                    lightIcon.style.display = 'none';
+                }
+            });
+            
+            // Botón volver arriba
+            const btnVolverArriba = document.getElementById('btnVolverArriba');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    btnVolverArriba.classList.add('visible');
+                } else {
+                    btnVolverArriba.classList.remove('visible');
+                }
+            });
+            
+            btnVolverArriba.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
