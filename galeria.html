@@ -30,11 +30,15 @@
                 <li><a href="arte.html#contacto">Contacto</a></li>
             </ul>
         </nav>
-        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="cambiar modo oscuro/claro">
-            <span class="dark-mode-icon">🌙</span>
-            <span class="light-mode-icon" style="display: none;">☀️</span>
-        </button>
-        <div id="reloj" class="tiempo-contador">Hora actual: <span id="hora-actual">00:00:00</span></div>
+        <div class="header-right">
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="cambiar modo oscuro/claro">
+                <span class="dark-mode-icon">🌙</span>
+                <span class="light-mode-icon" style="display: none;">☀️</span>
+            </button>
+            <div id="reloj" class="reloj-estilo">
+                <span id="hora">00</span>:<span id="minutos">00</span>:<span id="segundos">00</span>
+            </div>
+        </div>
     </header>
 
     <main class="pagina-galeria">
@@ -46,28 +50,28 @@
                 <div class="galeria-grid">
                     
                     <article class="obra">
-                        <img src="https://assets.codepen.io/2585/Roboto.svg" alt="Obra abstracta Roboto" loading="lazy">
+                        <img src="imagenes/images3.jpg" alt="Obra abstracta" loading="lazy" style="width: 100%; height: auto; object-fit: cover;">
                         <h3>Obra Abstracta</h3>
                         <p>Composición geométrica con trazos digitales modernos.</p>
                         <a href="arte.html#artistas">Ver más</a>
                     </article>
 
                     <article class="obra">
-                        <img src="https://assets.codepen.io/2585/Entertainment.svg" alt="Arte digital Entertainment" loading="lazy">
+                        <img src="./imagenes/descarga10.jpg" alt="Arte digital" loading="lazy" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
                         <h3>Arte Digital</h3>
                         <p>Una visión vibrante de formas y colores dinámicos.</p>
                         <a href="arte.html#artistas">Conocer artista</a>
                     </article>
 
                     <article class="obra">
-                        <img src="https://assets.codepen.io/2585/Mechanical+Love.svg" alt="Obra Mechanical Love" loading="lazy">
+                        <img src="imagenes/mechanical-love.jpg" alt="Mechanical Love" loading="lazy" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
                         <h3>Mechanical Love</h3>
                         <p>Exploración artística entre lo humano y lo mecánico.</p>
                         <a href="arte.html#artistas">Detalles</a>
                     </article>
 
                     <article class="obra">
-                        <img src="https://assets.codepen.io/2585/Waiting.svg" alt="Obra Waiting" loading="lazy">
+                        <img src="imagenes/waiting.jpg" alt="Waiting" loading="lazy" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
                         <h3>Waiting</h3>
                         <p>Una pieza que refleja calma y contemplación.</p>
                         <a href="arte.html#artistas">Descubrir más</a>
@@ -312,7 +316,49 @@
                     behavior: 'smooth'
                 });
             });
-        });
+        <script src="script.js"></script>
+    <style>
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .reloj-estilo {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            color: #333;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        .dark-mode .reloj-estilo {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+    <script>
+        // Función para actualizar el reloj
+        function actualizarReloj() {
+            const ahora = new Date();
+            const horas = ahora.getHours().toString().padStart(2, '0');
+            const minutos = ahora.getMinutes().toString().padStart(2, '0');
+            const segundos = ahora.getSeconds().toString().padStart(2, '0');
+            
+            const reloj = document.getElementById('reloj');
+            if (reloj) {
+                document.getElementById('hora').textContent = horas;
+                document.getElementById('minutos').textContent = minutos;
+                document.getElementById('segundos').textContent = segundos;
+            }
+        }
+
+        // Actualizar el reloj cada segundo
+        setInterval(actualizarReloj, 1000);
+        
+        // Mostrar la hora inmediatamente
+        document.addEventListener('DOMContentLoaded', actualizarReloj);
     </script>
 </body>
 </html>
