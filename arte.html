@@ -252,5 +252,53 @@
       }
     }).mount("#app");
     </script>
+    
+    <!-- Script para scroll suave -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Seleccionar todos los enlaces del menú de navegación
+        const enlacesNavegacion = document.querySelectorAll('nav a[href^="#"]');
+        
+        // Agregar evento de clic a cada enlace
+        enlacesNavegacion.forEach(enlace => {
+            enlace.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Obtener el ID de la sección a la que se debe hacer scroll
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Hacer scroll suave hasta la sección
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Actualizar la URL sin recargar la página
+                    history.pushState(null, '', targetId);
+                }
+            });
+        });
+        
+        // Manejar el botón de la galería en el hero
+        const botonGaleria = document.querySelector('.hero-content .btn');
+        if (botonGaleria && botonGaleria.getAttribute('href') && botonGaleria.getAttribute('href').startsWith('#')) {
+            botonGaleria.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    history.pushState(null, '', targetId);
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html>
